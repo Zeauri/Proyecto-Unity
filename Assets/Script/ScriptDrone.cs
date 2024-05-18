@@ -12,6 +12,14 @@ public class ScriptDrone : MonoBehaviour
 
     private float LastShoot;
 
+    private int Health = 3;
+
+    public void Hit() //Sistema de vidas por golpes
+    {
+        Health = Health - 1;
+        if (Health == 0) Destroy(gameObject);
+    }
+
     private void Update()
     {
         Vector3 direction = Robot.transform.position - transform.position;
@@ -36,7 +44,7 @@ public class ScriptDrone : MonoBehaviour
         if (transform.localScale.x == 6.0f) direction = Vector2.left;
         else direction = Vector2.right;
 
-        GameObject bullet = Instantiate(BulletPrefab, transform.position + direction * 0.1f, Quaternion.identity);
+        GameObject bullet = Instantiate(BulletPrefab, transform.position + direction * 1.2f, Quaternion.identity); //El objeto disparara las balas no desde su interior, sino a 1,2f de distancia. Esto se usa para que las balas no colisionen con el propio objeto
         bullet.GetComponent<ScriptBala>().SetDirection(direction);
     }
 

@@ -14,6 +14,12 @@ public class MovimientoPersonaje : MonoBehaviour
     private Rigidbody2D Rigidbody2d; //Creamos una variable que podemos acceder desde cualquier parte de este script de tipo Rigidbody2D
     private float Horizontal; //Es una variable creada para el movimiento
     private bool Grounded; //Creamos esto para saber si estamos en el suelo o no. Se representara en valores 1 o 0, Si esta suelo=1 si no lo esta=0
+    private int Health = 50;
+    public void Hit() //Sistema de vidas por golpes
+    {
+        Health = Health - 1;
+        if (Health == 0) Destroy(gameObject);
+    }
     private void Jump() //Salto
     {
         Rigidbody2d.AddForce(Vector2.up * JumpForce);
@@ -24,7 +30,7 @@ public class MovimientoPersonaje : MonoBehaviour
         if(transform.localScale.x == -1.0f) direction = Vector2.right;
         else direction = Vector2.left;
 
-        GameObject bullet = Instantiate(BulletPrefab, transform.position + direction * 0.1f, Quaternion.identity);
+        GameObject bullet = Instantiate(BulletPrefab, transform.position + direction * 1.5f, Quaternion.identity); //El objeto disparara las balas no desde su interior, sino a 1,2f de distancia. Esto se usa para que las balas no colisionen con el propio objeto
         bullet.GetComponent<ScriptBala>().SetDirection(direction);
     }
 

@@ -32,5 +32,26 @@ public class ScriptBala : MonoBehaviour
         
     }
 
+
+
     
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        MovimientoPersonaje Robot = collision.GetComponent<MovimientoPersonaje>();
+        ScriptDrone Drone = collision.GetComponent<ScriptDrone>();
+        if (Robot != null)
+        {
+            Robot.Hit();
+        }
+
+        if (Drone != null)
+        {
+            Drone.Hit();
+        }
+
+        DestroyBullet();
+
+    }
+
 }
