@@ -8,6 +8,8 @@ public class ScriptTorreta : MonoBehaviour
 
     public GameObject Robot;
 
+    public GameObject BulletPrefab;
+
     
 
     private float LastShoot;
@@ -20,7 +22,7 @@ public class ScriptTorreta : MonoBehaviour
 
         float distance = Mathf.Abs(Robot.transform.position.x - transform.position.x);
 
-        if (distance < 6.0f && Time.time > LastShoot + 0.25f)
+        if (distance < 10.0f && Time.time > LastShoot + 0.25f) //El objeto disparara en cuanto el personaje esté en distancia de 10 o menos
         {
             Shoot();
             LastShoot = Time.time;
@@ -30,7 +32,13 @@ public class ScriptTorreta : MonoBehaviour
     private void Shoot()
     {
         Debug.Log("Shoot");
-        
+
+        Vector3 direction;
+        if (transform.localScale.x == 6.0f) direction = Vector3.right;
+        else direction = Vector3.left;
+
+        GameObject bullet = Instantiate(BulletPrefab, transform.position + direction *0.1f, Quaternion.identity);
+        bullet.GetComponent<ScriptBala>().SetDirection(direction);
     }
 
    
