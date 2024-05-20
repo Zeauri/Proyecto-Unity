@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; // Script para añadir o cambiar de escenas
 
 public class ScriptPuntuaje : MonoBehaviour
 {
@@ -12,7 +13,10 @@ public class ScriptPuntuaje : MonoBehaviour
         if (score == 8) //Sistema para que al alcanzar el score deseado nos aparezca un mensaje
         {
             scoreText.text = "¡Nivel superado!";
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }
+
+
     }
 
     // Start is called before the first frame update
