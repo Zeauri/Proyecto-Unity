@@ -28,7 +28,7 @@ public class ScriptDrone : MonoBehaviour
 
         float distance = Mathf.Abs(Robot.transform.position.x - transform.position.x);
 
-        if (distance < 10.0f && Time.time > LastShoot + 0.25f) //El objeto disparara en cuanto el personaje esté en distancia de 10 o menos
+        if (distance < 10.0f && Time.time > LastShoot + 1.0f) //El objeto disparara en cuanto el personaje esté en distancia de 10 o menos y con un retardo de LastShoot de 1.0f de tiempo
         {
             Shoot();
             LastShoot = Time.time;
@@ -44,7 +44,7 @@ public class ScriptDrone : MonoBehaviour
         if (transform.localScale.x == 6.0f) direction = Vector2.left;
         else direction = Vector2.right;
 
-        GameObject bullet = Instantiate(BulletPrefab, transform.position + direction * 1.2f, Quaternion.identity); //El objeto disparara las balas no desde su interior, sino a 1,2f de distancia. Esto se usa para que las balas no colisionen con el propio objeto
+        GameObject bullet = Instantiate(BulletPrefab, transform.position + direction * 1.5f, Quaternion.identity); //El objeto disparara las balas no desde su interior, sino a 1,2f de distancia. Esto se usa para que las balas no colisionen con el propio objeto
         bullet.GetComponent<ScriptBala>().SetDirection(direction);
     }
 

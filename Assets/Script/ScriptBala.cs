@@ -40,6 +40,7 @@ public class ScriptBala : MonoBehaviour
     {
         MovimientoPersonaje Robot = collision.GetComponent<MovimientoPersonaje>();
         ScriptDrone Drone = collision.GetComponent<ScriptDrone>();
+        ScriptTorreta torreta = collision.GetComponent<ScriptTorreta>();
         if (Robot != null)
         {
             Robot.Hit();
@@ -48,6 +49,11 @@ public class ScriptBala : MonoBehaviour
         if (Drone != null)
         {
             Drone.Hit();
+        }
+
+        if (torreta != null) 
+        {
+            torreta.Hit();
         }
 
         DestroyBullet();

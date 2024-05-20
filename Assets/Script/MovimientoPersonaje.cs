@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class MovimientoPersonaje : MonoBehaviour
 {
-
     
+
     private float LastShoot;
     public GameObject BulletPrefab; //Es el prefab de la bala
     public Animator Animator; 
@@ -14,7 +16,7 @@ public class MovimientoPersonaje : MonoBehaviour
     private Rigidbody2D Rigidbody2d; //Creamos una variable que podemos acceder desde cualquier parte de este script de tipo Rigidbody2D
     private float Horizontal; //Es una variable creada para el movimiento
     private bool Grounded; //Creamos esto para saber si estamos en el suelo o no. Se representara en valores 1 o 0, Si esta suelo=1 si no lo esta=0
-    private int Health = 50;
+    public int Health = 50;
     public void Hit() //Sistema de vidas por golpes
     {
         Health = Health - 1;
@@ -59,6 +61,8 @@ public class MovimientoPersonaje : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         //En horizontal se van a almacenar valores de tipo float, que son los valores reales (1.6f 5.6f)
         Horizontal = Input.GetAxisRaw("Horizontal") * Speed; //Con esto lo que tenemos son valores de 1 o -1 en función de lo que estemos pulsando en el teclado (A=-1 D=1 y si no pulsa nada=0)
 
