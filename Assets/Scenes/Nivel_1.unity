@@ -4483,7 +4483,7 @@ MonoBehaviour:
   Animator: {fileID: 0}
   Speed: 8
   JumpForce: 550
-  Health: 50
+  Health: 5
 --- !u!50 &2015741994
 Rigidbody2D:
   serializedVersion: 4
@@ -4559,8 +4559,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Vida: {fileID: 1428836688}
-  Health: 50
-  MaxHealth: 50
+  Health: 5
+  MaxHealth: 5
 --- !u!4 &2032287153 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 431412612354826478, guid: ad8eba8ce965a7240b0afbadd877d8e1, type: 3}

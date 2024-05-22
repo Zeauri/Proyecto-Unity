@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
 public class MovimientoPersonaje : MonoBehaviour
 {
+
+    
+
     
 
     private float LastShoot;
@@ -16,11 +20,18 @@ public class MovimientoPersonaje : MonoBehaviour
     private Rigidbody2D Rigidbody2d; //Creamos una variable que podemos acceder desde cualquier parte de este script de tipo Rigidbody2D
     private float Horizontal; //Es una variable creada para el movimiento
     private bool Grounded; //Creamos esto para saber si estamos en el suelo o no. Se representara en valores 1 o 0, Si esta suelo=1 si no lo esta=0
-    public int Health = 50;
+    public int Health = 5;
     public void Hit() //Sistema de vidas por golpes
     {
         Health = Health - 1;
-        if (Health == 0) Destroy(gameObject);
+        
+        
+        
+
+        if (Health == 0) SceneManager.LoadScene(SceneManager.GetActiveScene().name); //Si la vida baja a 0 se reseteare el nivel actual
+        
+
+
     }
     private void Jump() //Salto
     {
@@ -55,7 +66,9 @@ public class MovimientoPersonaje : MonoBehaviour
     {
         Rigidbody2d = GetComponent<Rigidbody2D>(); //Con esto cogemos el componente de Rigidbody2D y lo metemos en este script. En nuestro caso "MovimientoPersonaje"
         Animator = GetComponent<Animator>();
+
         
+
     }
 
     // Update is called once per frame

@@ -9,9 +9,9 @@ public class ScriptBarraVida : MonoBehaviour
 
     public Image Vida;
 
-    public float Health = 50;
+    public float Health = 5;
 
-    public float MaxHealth = 50;
+    public float MaxHealth = 5;
 
 
 

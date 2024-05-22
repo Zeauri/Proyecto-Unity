@@ -9,6 +9,7 @@ TagManager:
   - Personaje
   - Bala
   - Vida
+  - Enemigo
   layers:
   - Default
   - TransparentFX
