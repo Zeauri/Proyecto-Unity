@@ -29,5 +29,10 @@ public class ScriptBarraVida : MonoBehaviour
         {
             Health = Health - 1;
         }
+
+        if (collision.CompareTag("Enemigo"))
+        {
+            Health = Health - 1;
+        }
     }
 }

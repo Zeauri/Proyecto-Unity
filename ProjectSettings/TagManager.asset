@@ -10,6 +10,8 @@ TagManager:
   - Bala
   - Vida
   - Enemigo
+  - Disparo1
+  - Boss
   layers:
   - Default
   - TransparentFX

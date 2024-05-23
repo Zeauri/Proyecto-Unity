@@ -103,10 +103,34 @@ public class MovimientoPersonaje : MonoBehaviour
         {
             Shoot();
             LastShoot = Time.time;
+
+            controlSonido.PlayOneShot(sonidoDisparo);
+        }
+
+        
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Boss")) 
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        }
+
+        if (collision.CompareTag("Enemigo"))
+        {
+            Health = Health - 1;
+            if (Health == 0) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
     }
 
+    public AudioClip sonidoDisparo;
+    public AudioSource controlSonido;
     
+
+
+
 
 }
