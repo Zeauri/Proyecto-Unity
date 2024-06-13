@@ -34,6 +34,8 @@ public class ScriptTorreta : MonoBehaviour
         {
             Shoot();
             LastShoot = Time.time;
+
+            controlSonido.PlayOneShot(sonidoDisparo);
         }
     }
 
@@ -49,5 +51,6 @@ public class ScriptTorreta : MonoBehaviour
         bullet.GetComponent<ScriptBala>().SetDirection(direction);
     }
 
-   
+    public AudioClip sonidoDisparo;
+    public AudioSource controlSonido;
 }
